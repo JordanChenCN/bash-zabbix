@@ -43,7 +43,7 @@ service iptables stop
 chkconfig iptables off
 
 #安装mysql、php、nginx
-yum install wget epel-release ntpdate mysql-server mysql-devel vixie-cron -y
+yum install wget epel-release ntpdate mysql-server mysql-devel vixie-cron tar -y
 
 #同步时间
 echo "* */1 * * * /usr/sbin/ntpdate 133.100.11.8 >/dev/null" >> /var/spool/cron/root   
