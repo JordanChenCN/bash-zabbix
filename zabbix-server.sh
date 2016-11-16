@@ -91,6 +91,8 @@ sed -i "s/max_input_time = 60/max_input_time = 300/g" /usr/local/php/etc/php.ini
 sed -i "s/;date.timezone =/date.timezone = PRC/g" /usr/local/php/etc/php.ini
 sed -i "s/;always_populate_raw_post_data = -1/always_populate_raw_post_data = -1/g" /usr/local/php/etc/php.ini
 cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
+cp php-$php_version/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+chmod +x /etc/init.d/php-fpm
 
 #编译安装zabbix服务端和客户端
 cd $present_dir
@@ -184,7 +186,7 @@ EOF
 
 #启动各进程
 /usr/local/nginx/sbin/nginx
-/usr/local/php/sbin/php-fpm
+service php-fpm start
 service zabbix_server start
 service zabbix_agentd start
 
