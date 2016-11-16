@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #系统要求：mininal centos6.5
-echo "a quck script to install zabbix-server on centos6.5"
+echo "a script to install zabbix-server on centos6.5"
 
 read -p "zabbix_version:(default:3.2.1)" zabbix_version
 if [[ -z $zabbix_version ]];then
