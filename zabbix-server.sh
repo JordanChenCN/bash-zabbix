@@ -141,12 +141,12 @@ global \$DB;
 EOF
 
 
-mv /usr/loca/nginx/conf/nginx.conf /usr/loca/nginx/conf/nginx.conf.bk
+mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.bk
 cat > /usr/local/nginx/conf/nginx.conf <<EOF
 worker_processes  1;
 events {
     worker_connections  1024;
-        ｝
+       }
     http {
     include       mime.types;
     default_type  application/octet-stream;
