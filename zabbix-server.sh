@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#系统要求：mininal centos6.5
-echo "a script to install zabbix-server on centos6.5"
+#系统要求：mininal centos6.x
+echo "a script to install zabbix-server on centos6.x"
 
 read -p "zabbix_version:(default:3.2.1)" zabbix_version
 if [[ -z $zabbix_version ]];then
@@ -17,6 +17,8 @@ read -p "php_version:(default:5.6.28)" php_version
 if [[ -z $php_version ]];then
 php_version=5.6.28
 fi
+
+yum groupinstall Development tools -y
 
 present_dir=`pwd`
 hostname=`hostname`
@@ -86,7 +88,7 @@ cp php-$php_version/php.ini-production /usr/local/php/etc/php.ini
 sed -i "s/max_execution_time = 30/max_execution_time = 300/g" /usr/local/php/etc/php.ini
 sed -i "s/post_max_size = 8M/post_max_size = 16M/g" /usr/local/php/etc/php.ini
 sed -i "s/max_input_time = 60/max_input_time = 300/g" /usr/local/php/etc/php.ini
-sed -i "s/;date.timezone =/date.timezone = RPC/g" /usr/local/php/etc/php.ini
+sed -i "s/;date.timezone =/date.timezone = PRC/g" /usr/local/php/etc/php.ini
 sed -i "s/;always_populate_raw_post_data = -1/always_populate_raw_post_data = -1/g" /usr/local/php/etc/php.ini
 cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 
